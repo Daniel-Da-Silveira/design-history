@@ -1,14 +1,14 @@
 module.exports = function (eleventyConfig) {
-  // Options to customise the appearance of your design history
-  // https://x-govuk.github.io/govuk-eleventy-plugin/options/
-  eleventyConfig.addPlugin(require('@x-govuk/govuk-eleventy-plugin'), {
+  // Plugins
+  eleventyConfig.addPlugin(require('govuk-eleventy-plugin'), {
+    brandColour: '#008531',
     stylesheets: [
       '/styles/application.css'
     ],
     headingPermalinks: true,
     header: {
-      organisationLogo: false,
-      productName: 'Design history',
+      productName: 'Forms designer history',
+      organisationName: 'Defra',
       search: {
         indexPath: '/search.json',
         sitemapPath: '/sitemap'
@@ -16,8 +16,15 @@ module.exports = function (eleventyConfig) {
     }
   })
 
+  // filters
+  eleventyConfig.addFilter('notifyPlaceholders', require('./lib/filters/notify-placeholders'))
+
   // Passthrough
-  eleventyConfig.addPassthroughCopy({ './app/images': '.' })
+  eleventyConfig.addPassthroughCopy(
+    {
+      './app/images': '.',
+      './app/docs': '/docs'
+    })
 
   // Config
   return {

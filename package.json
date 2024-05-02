@@ -1,7 +1,7 @@
 {
-  "name": "govuk-design-history",
+  "name": "tra-digital-design-history",
   "version": "2.0.0",
-  "description": "A template for a place for documenting GOV.UK service designs",
+  "description": "How the Teaching Regulation Agency (TRA) services have changed over time",
   "keywords": [
     "design-history",
     "government",
@@ -17,18 +17,23 @@
     "test": "standard"
   },
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@x-govuk/govuk-eleventy-plugin": "^6.2.1",
+    "@11ty/eleventy": "^1.0.1",
+    "govuk-eleventy-plugin": "^3.0.2",
     "http-server": "^14.1.1",
-    "rimraf": "^5.0.5",
-    "sass": "^1.75.0"
+    "rimraf": "^3.0.2",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
-    "standard": "^17.1.0",
-    "webshot-node": "^0.18.2"
+    "standard": "^17.0.0",
+    "webshot-node": "^0.18.3"
   },
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": "^16.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "!.eleventy.js"
+    ]
   }
 }

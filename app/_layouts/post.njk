@@ -2,20 +2,24 @@
 
 {% from "screenshots/macro.njk" import appScreenshots %}
 
+{% block head %}
+  {{ super() }}
+  <meta name="robots" content="noindex nofollow">
+{% endblock %}
+
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
       {{ appDocumentHeader({
-        title: title | noOrphans,
+        title: title | noOrphans
+      }) }}
+
+      {{ appDocumentFooter({
         date: date,
         modified: modified,
         author: author,
-        authors: authors,
-        tags: tags
+        authors: authors
       }) }}
-    </div>
-
-    <div class="govuk-grid-column-two-thirds-from-desktop">
       {% call appProseScope() %}
         {% if image -%}
           <figure>
